@@ -15,7 +15,7 @@ step() { echo "\n[$1/3] $2"; }
 
 step 1 "Ce Mac convient-il ?"
 macos=$(sw_vers -productVersion)
-(( ${macos%%.*} >= 15 )) || fail "Tiroir demande macOS 15 ou plus (ce Mac : $macos)."
+(( ${macos%%.*} >= 26 )) || fail "Tiroir demande macOS 26 ou plus (ce Mac : $macos)."
 [[ "$(sysctl -n hw.optional.arm64 2>/dev/null)" == "1" ]] || fail "Tiroir ne tourne que sur les Mac à puce Apple (M1 ou plus récent)."
 echo "  macOS $macos : ok"
 
